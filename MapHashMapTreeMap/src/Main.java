@@ -34,14 +34,22 @@ public class Main {
         color2.put(1, "Red");
         color2.put(2, "Green");
         color2.put(3, "Black");
-        HashMap<Integer, String> color3 = new HashMap<>();
+        HashMap<Integer, String> color3 = filterByLength(color2);
         System.out.println(color2);
-        for (Map.Entry colors : color2.entrySet()) {
-            if (((String) colors.getValue()).length() > 3) {
-                color3.put((Integer) colors.getKey(), (String) colors.getValue());
+
+        for (Map.Entry<Integer, String> entry : color3.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+    }
+    private static HashMap<Integer, String> filterByLength(HashMap<Integer, String> map) {
+        HashMap<Integer, String> result = new HashMap<>();
+
+        for (Map.Entry<Integer, String> entry : map.entrySet()) {
+            if (entry.getValue().length() > 3) {
+                result.put(entry.getKey(), entry.getValue());
             }
         }
-        System.out.println(color3);
-    }
 
+        return result;
+    }
 }
