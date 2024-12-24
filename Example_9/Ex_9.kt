@@ -23,7 +23,21 @@ fun main() {
         arrayOf(6, 7, 8, 9, 10),
         arrayOf(11, 12, 13, 14, 15),
     )
-    println(matrix2[matrix2.size / 2][matrix2[matrix2.size / 2].size / 2])
+    var m: Int = 0
+    for (i in matrix2.indices) {
+        for (j in matrix2[i].indices) {
+            m++
+        }
+    }
+    val matrix22=Array(m){0}
+    m=0
+    for (i in matrix2.indices) {
+        for (j in matrix2[i].indices) {
+           matrix22[m]= matrix2[i][j]
+            m++
+        }
+    }
+    println(matrix22[m/2])
     println()
     //Дана матрица размером 5 х 5. Заполнить ее единицами в таком   порядке:
     //0 0 0 0 0
@@ -32,8 +46,7 @@ fun main() {
     //0 1 1 1 0
     //1 1 1 1 1
     val matrix3 = Array(5) { IntArray(5) { 0 } }
-//    println(matrix2.contentDeepToString())
-//    println(matrix3.contentDeepToString())
+
     for (i in matrix3.indices) {
         tmp = matrix3.size - 1
         for (j in matrix3[i].indices) {
@@ -44,23 +57,28 @@ fun main() {
     }
     println()
 // Дан набор целых чисел. Найти второе максимальное число.
-    //val const X = 2
-    val numbers = arrayOf(5, 6, 7, 8, 9, 8, 7, 4, 5, 6, 3, 2, 1, 9, 5, 4, 5, 6, 7, 8, 9)
-    //var secondIndex: Int
-    var indtmp = 0
+    val searchX = 2
+    val numbers = arrayOf(5, 6, 7, 8, 9, 8, 7, 4, 9, 6, 3, 2, 1, 9, 5, 4, 5, 6, 7, 8, 9)
+
+    var imax = 0
     for (i in numbers.indices) {
 
-        if (numbers[indtmp] < numbers[i]) {
-            indtmp = i
-
+        if (numbers[imax] < numbers[i]) {
+            imax = i
         }
     }
-    for (i in indtmp + 1..numbers.size) {
+    var j = 0
+    for (i in numbers.indices) {
 
-        if (numbers[indtmp] == numbers[i]) {
-            indtmp = i
+        if (searchX == j) {
             break
         }
+        if (numbers[imax] == numbers[i]) {
+            imax = i
+            j++
+        }
     }
-    println("второе максимальное число: index $indtmp  number ${numbers[indtmp]}")
+    println("второе максимальное число: index $imax  number ${numbers[imax]}")
+    var t: Int = 5
+    arrayOf(intArrayOf(1, 2), intArrayOf(3, 4))
 }
