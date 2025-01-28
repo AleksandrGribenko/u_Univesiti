@@ -1,4 +1,4 @@
-package Example_9
+package E_30.Example_9
 
 fun main() {
     //Найти минимальный элемент в целочисленном массиве размера 3 х 3.
@@ -29,15 +29,15 @@ fun main() {
             m++
         }
     }
-    val matrix22=Array(m){0}
-    m=0
+    val matrix22 = Array(m) { 0 }
+    m = 0
     for (i in matrix2.indices) {
         for (j in matrix2[i].indices) {
-           matrix22[m]= matrix2[i][j]
+            matrix22[m] = matrix2[i][j]
             m++
         }
     }
-    println(matrix22[m/2])
+    println(matrix22[m / 2])
     println()
     //Дана матрица размером 5 х 5. Заполнить ее единицами в таком   порядке:
     //0 0 0 0 0
@@ -57,28 +57,46 @@ fun main() {
     }
     println()
 // Дан набор целых чисел. Найти второе максимальное число.
-    val searchX = 2
-    val numbers = arrayOf(5, 6, 7, 8, 9, 8, 7, 4, 9, 6, 3, 2, 1, 9, 5, 4, 5, 6, 7, 8, 9)
+    val numbers = arrayOf(5, 6, 7, 3, 9, 4, 8, 4, 1, 6, 3, 2, 1, 9, 5, 4, 5, 6, 7, 6, 9)
 
     var imax = 0
-    for (i in numbers.indices) {
-
+    for (i in 1 until numbers.size) {
         if (numbers[imax] < numbers[i]) {
             imax = i
         }
     }
-    var j = 0
-    for (i in numbers.indices) {
+    var secondImax = 0
+    for (i in imax until numbers.size) {
+        if (numbers[imax] == numbers[i] && imax < i) { //
+            secondImax = i
 
-        if (searchX == j) {
             break
         }
-        if (numbers[imax] == numbers[i]) {
-            imax = i
-            j++
-        }
     }
-    println("второе максимальное число: index $imax  number ${numbers[imax]}")
-    var t: Int = 5
-    arrayOf(intArrayOf(1, 2), intArrayOf(3, 4))
+    if (secondImax != 0) {
+        println("Второе максимальное число: ${numbers[secondImax]}, индекс $secondImax")
+    } else {
+        println("Второго максимального числа нет.")
+    }
+//    val searchX = 2
+//    val numbers = arrayOf(5, 6, 7, 8, 9, 8, 7, 4, 9, 6, 3, 2, 1, 9, 5, 4, 5, 6, 7, 8, 9)
+//    var imax = 0
+//    for (i in numbers.indices) {
+//
+//        if (numbers[imax] < numbers[i]) {
+//            imax = i
+//        }
+//    }
+//    numbers[imax]
+//    var j = 0
+//    for (i in imax until numbers.size) {
+//        if (searchX == j)  {
+//            break
+//        }
+//        if (numbers[imax] == numbers[i]) {
+//            imax = i
+//            j++
+//        }
+//    }
+//    println("второе максимальное число: index $imax  number ${numbers[imax]}")
 }
